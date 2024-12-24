@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/28fbfa5324e64ec7a3a788f0e50e4b1c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 28fbfa5324e64ec7a3a788f0e50e4b1c
+run_name: intrigued-shrimp-131
+run_uuid: 28fbfa5324e64ec7a3a788f0e50e4b1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735034974612
+status: 1
+tags: []
+user_id: soham

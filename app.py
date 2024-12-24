@@ -1,7 +1,3 @@
-# The data set used in this example is from http://archive.ics.uci.edu/ml/datasets/Wine+Quality
-# P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis.
-# Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.
-
 import os
 import warnings
 import sys
@@ -13,14 +9,21 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 from urllib.parse import urlparse
 import mlflow
-from mlflow.models import infer_signature
 import mlflow.sklearn
 
 import logging
+import dagshub  # DagsHub integration
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
+# DagsHub initialization (should be set before any MLflow operations)
+dagshub.init(repo_owner='soham0809',
+             repo_name='mlflowexperiments',
+             mlflow=True)
+
+# Set the tracking URI to DagsHub before any MLflow actions
+mlflow.set_tracking_uri("https://dagshub.com/soham0809/mlflowexperiments.mlflow")
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -75,36 +78,11 @@ if __name__ == "__main__":
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
 
-        #predictions = lr.predict(train_x)
-        #signature = infer_signature(train_x, predictions)
-
-        ## For Remote server only(DAGShub)
-
-        remote_server_uri="https://dagshub.com/soham0809/mlflowexperiments.mlflow"
-
-        mlflow.set_tracking_uri(remote_server_uri)
-
+        # Register the model in DagsHub
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-
-        # Model registry does not work with file store
         if tracking_url_type_store != "file":
-            # Register the model
-            # There are other ways to use the Model Registry, which depends on the use case,
-            # please refer to the doc for more information:
-            # https://mlflow.org/docs/latest/model-registry.html#api-workflow
             mlflow.sklearn.log_model(
                 lr, "model", registered_model_name="ElasticnetWineModel"
             )
         else:
             mlflow.sklearn.log_model(lr, "model")
-
-
-import dagshub
-dagshub.init(repo_owner='soham0809',
-             repo_name='mlflowexperiments',
-             mlflow=True)
-
-import mlflow
-with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
