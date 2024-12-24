@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/a41e2e5cea1e440695ee1e5d823ee7ae/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a41e2e5cea1e440695ee1e5d823ee7ae
+run_name: beautiful-moth-924
+run_uuid: a41e2e5cea1e440695ee1e5d823ee7ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735034258152
+status: 1
+tags: []
+user_id: soham

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/23b1d492b158471aaa71f347946839aa/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 23b1d492b158471aaa71f347946839aa
+run_name: gentle-hare-141
+run_uuid: 23b1d492b158471aaa71f347946839aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735034673396
+status: 1
+tags: []
+user_id: soham

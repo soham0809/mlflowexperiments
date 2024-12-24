@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/4e12a17a958644f594fcea76c25f41ca/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e12a17a958644f594fcea76c25f41ca
+run_name: sincere-duck-508
+run_uuid: 4e12a17a958644f594fcea76c25f41ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735034524002
+status: 1
+tags: []
+user_id: soham
